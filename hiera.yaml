@@ -1,0 +1,9 @@
+---
+
+:backends:
+  - yaml
+:yaml:
+  :datadir: "/tmp/vagrant-puppet/"
+:hierarchy:
+  - "environments/%{::environment}/hieradata/guestbook"
+  - "common"

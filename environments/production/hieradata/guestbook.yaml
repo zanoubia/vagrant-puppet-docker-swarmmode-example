@@ -1,0 +1,13 @@
+---
+
+redis:
+  replicas: 1
+
+guestbook:
+  replicas: 1
+  git_repo: "https://github.com/askcharlie/guestbook.git"
+  tag: "1.0"
+  db_url: "postgres://test:test@postgres:5432/test"
+
+nginx:
+  replicas: 1

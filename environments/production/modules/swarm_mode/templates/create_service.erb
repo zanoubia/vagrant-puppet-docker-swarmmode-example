@@ -1,0 +1,26 @@
+/usr/bin/docker service create  \
+--replicas <%= @service_replicas -%> \
+<% if @service_network != nil -%>
+--network <%= @service_network -%> \
+<% end -%>
+--name <%= @service_name -%> \
+<% if @service_env != [] -%>
+<% @service_env.each do |env_var| -%>
+-e <%= env_var['var'] %>=<%= env_var['value'] %> \
+<% end -%>
+<% end -%>
+<% if @service_mount != [] -%>
+<% @service_mount.each do |mount| -%>
+--mount \
+type=<%= mount['type'] %>,\
+source=<%= mount['source'] %>,\
+destination=<%= mount['destination'] %>  \
+<% end -%>
+<% end -%>
+<% if @service_ports != [] -%>
+<% @service_ports.each do |mapping| -%>
+--publish <%= mapping['target_port']%>:<%= mapping['service_port'] %> \
+<% end -%>
+<% end -%>
+<%= @service_d_image %> \
+<%= @service_x_options %>

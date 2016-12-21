@@ -1,0 +1,21 @@
+/usr/bin/docker network create \
+-d <%= @network_driver -%> \
+<% if @network_subnet != [] -%>
+<% @network_subnet.each do |subnet| -%>
+--subnet=<%= subnet %> \
+<% end -%>
+<% end -%>
+<% if @network_ip_range != [] -%>
+<% @network_ip_range.each do |range| -%>
+--ip-range=<%= range %> \
+<% end -%>
+<% end -%>
+<% if @network_gateway != [] -%>
+<% @network_gateway.each do |gateway| -%>
+--gateway=<%= gateway %> \
+<% end -%>
+<% end -%>
+<% if @network_internal == true -%>
+--internal \
+<% end -%>
+<%=  @network_name -%>
