@@ -7,6 +7,5 @@ ADD guestbook/Gemfile /guestbook/Gemfile
 ADD guestbook/Gemfile.lock /guestbook/Gemfile.lock
 RUN bundle install
 ADD guestbook /guestbook
-CMD bundle exec rake db:migrate
 CMD bundle exec rackup -s Puma
 
