@@ -12,7 +12,7 @@ The current version of this example includes only one docker host.
 The storage of redis is persistent in the vagrant box.
 
 ####Project layout
-'''
+```
 .
 ├── Vagrantfile
 ├── environments
@@ -31,7 +31,7 @@ The storage of redis is persistent in the vagrant box.
 ├── hiera.yaml          # Hiera Config File
 └── nginx.conf
 
-'''
+```
 ###Requirements
 * Install Vagrant: https://www.vagrantup.com/downloads.html
 * clone this repository
@@ -39,7 +39,7 @@ The storage of redis is persistent in the vagrant box.
 ###Getting Started
 
 * Adjust the variables in hiera environments/production/hieradata/guestbook.yaml, especially the replicas values and the db_url :
-'''
+```
 ---
 
 redis:
@@ -53,18 +53,18 @@ guestbook:
 
 nginx:
   replicas: 1
-'''
+```
 
 * from the project directory run :
-'''
+```
 vagrant up
-'''
+```
 
 ####Scaling and updating
 To scale a service: update the values of replicas for the service in hiera environments/production/hieradata/guestbook.yaml. Then run:
-'''
+```
 vagrant provision
-'''
+```
 
 To update the ruby application after changes on the app github repository: change the value of guestbook.tag field in environments/production/hieradata/guestbook.yaml, then run vgrant provision
 
