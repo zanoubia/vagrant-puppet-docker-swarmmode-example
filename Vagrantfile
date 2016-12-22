@@ -14,6 +14,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "10.0.2.15"  
   config.vm.hostname = "dhost1"
 
+  config.vm.provision "shell", path: "provision.sh"
+
   config.vm.provision "docker" do |d|
     #d.build_image "/vagrant", args:  "-t guestbook:1.0"
     #d.pull_images "redis"
@@ -25,7 +27,7 @@ Vagrant.configure("2") do |config|
     puppet.environment_path = "environments"
     puppet.environment = "production"
     puppet.hiera_config_path = "hiera.yaml"
-    puppet.working_directory = "/tmp/vagrant-puppet/"
+    puppet.working_directory = "/tmp/vagrant-puppet"
     puppet.facter = {
       "swarm_role" => "manager"
     }
