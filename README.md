@@ -1,11 +1,14 @@
 # vagrant-puppet-docker-swarmmode-example
 ###Overview
-Vagrant and puppet to provision a docker swarm mode based architecture.
+Vagrant and puppet to provision a docker swarm mode based architecture, to deploy the guestbook application https://github.com/askcharlie/guestbook
 Using docker in swarm mode ensures a smooth scalability and allow updates to the deployed services (and also for clustring).
-The current version of this example include only one docker host.
+The current version of this example includes only one docker host.
 
 ####Architecture
 ![alt tag](https://github.com/zanoubia/vagrant-puppet-docker-swarmmode-example/blob/master/architecture.png)
+
+
+
 The storage of redis is persistent in the vagrant box.
 
 ####Project layout
@@ -35,7 +38,7 @@ The storage of redis is persistent in the vagrant box.
 
 ###Getting Started
 
-* Adjust the variables in hiera environments/production/hieradata/guestbook.yaml :
+* Adjust the variables in hiera environments/production/hieradata/guestbook.yaml, especially the replicas values and the db_url :
 '''
 ---
 
