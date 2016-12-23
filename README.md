@@ -59,11 +59,19 @@ nginx:
 ```
 vagrant up
 ```
+Check the application at http://localhost:8080
 
 ####Scaling and updating
 To scale a service: update the values of replicas for the service in hiera environments/production/hieradata/guestbook.yaml. Then run:
 ```
 vagrant provision
+```
+
+You can check that the scaling occured in the vagrant vm :
+```
+vagrant ssh
+docker service ls
+
 ```
 
 To update the ruby application after changes on the app github repository: change the value of guestbook.tag field in environments/production/hieradata/guestbook.yaml, then run vgrant provision
